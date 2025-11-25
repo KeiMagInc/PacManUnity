@@ -10,9 +10,9 @@ public class FruitController : MonoBehaviour
 
     private void Awake()
     {
-        //Recuperaciòn de componente ya creado en el GameObject Padre
+        //Recuperaciï¿½n de componente ya creado en el GameObject Padre
         fruitAnimator = GetComponent<Animator>();
-        //Creaciòn de componente por codigo
+        //Creaciï¿½n de componente por codigo
         fruitAudioSource = this.transform.AddComponent<AudioSource>();
         //Llamado al ScriptableObject 
         playerInfo = Resources.Load<PlayerInfo>("PlayerInfo");
@@ -21,11 +21,11 @@ public class FruitController : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            //Cambiar animaciòn a collected
+            //Cambiar animaciï¿½n a collected
             playerInfo.score += 1;
             fruitAnimator.SetBool("collected", true);
             fruitAudioSource.PlayOneShot(collectedSoud, 1f);
-            Destroy(this.gameObject, 1f);
+            Destroy(this.gameObject, 0.5f);
         }
     }
     private void OnDestroy()
