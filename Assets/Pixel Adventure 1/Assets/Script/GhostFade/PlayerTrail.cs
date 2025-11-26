@@ -49,6 +49,6 @@ public class PlayerTrail : MonoBehaviour
         fantasma.transform.localScale = transform.localScale;
         
         // 4. (Opcional) Ponerle un color plano o más suave al inicio
-        srFantasma.color = new Color(1f, 1f, 1f, 0.5f); // 50% transparente al nacer
+        srFantasma.color = new Color(1f, 1f, 1f, 0.3f); // 50% transparente al nacer
     }
 }
