@@ -59,6 +59,9 @@ public class PlayerController : MonoBehaviour
 
         //Vector del vector del input Ssytem
         float linearXvelocity = move.ReadValue<Vector2>().x;
+        // --- AGREGA ESTA LÍNEA ---
+        Debug.Log("Valor del Input X: " + linearXvelocity); 
+        // -------------------------
         //gestion animaciones de caminar
         if (linearXvelocity != 0) playerAnimator.SetBool("walk", true);
         else playerAnimator.SetBool("walk", false);
