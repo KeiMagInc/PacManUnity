@@ -3,15 +3,100 @@ using System.Collections;
 
 public class SpikeHead : MonoBehaviour
 {
-    // Tiempo que dura tu animación de golpe (ajústalo según tu clip)
+    [Header("Configuración de Ataque (Mario Style)")]
+    public float rangoDeteccion = 10f;
+    public float anchoDeteccion = 1.5f; // NUEVO: Qué tan "gordo" es el rayo
+    public float velocidadSubida = 2f;
+    public float gravedadCaida = 5f;
+    public float tiempoTemblor = 0.5f;
+    public float intensidadTemblor = 0.1f;
+    public float tiempoEsperaPiso = 1f;
+    public LayerMask capaJugador;
+
+    // Variables internas
+    private Vector3 posicionInicial;
+    private Rigidbody2D rb;
+    private bool atacando = false;
+
+    // --- TUS VARIABLES ORIGINALES ---
     public float tiempoAnimacion = 0.5f; 
-    
-    // Variable para evitar que el jugador muera dos veces seguidas
     private bool estaRespawning = false; 
 
+    void Start()
+    {
+        rb = GetComponent<Rigidbody2D>();
+        posicionInicial = transform.position;
+        rb.bodyType = RigidbodyType2D.Kinematic;
+    }
+
+    void Update()
+    {
+        if (atacando || estaRespawning) return;
+
+        // --- CAMBIO AQUI: Usamos BoxCast en lugar de Raycast ---
+        // Parámetros: Origen, Tamaño de la caja (Ancho, Alto), Ángulo, Dirección, Distancia, Capa
+        RaycastHit2D hit = Physics2D.BoxCast(
+            transform.position, 
+            new Vector2(anchoDeteccion, 0.5f), // Tamaño de la caja sensora
+            0f, 
+            Vector2.down, 
+            rangoDeteccion, 
+            capaJugador
+        );
+
+        if (hit.collider != null && hit.collider.CompareTag("Player"))
+        {
+            StartCoroutine(RutinaAtaque());
+        }
+    }
+
+    // --- RUTINA DE MOVIMIENTO ---
+    IEnumerator RutinaAtaque()
+    {
+        atacando = true;
+
+        // 1. TEMBLAR
+        float timer = 0f;
+        while (timer < tiempoTemblor)
+        {
+            transform.position = posicionInicial + new Vector3(Random.Range(-intensidadTemblor, intensidadTemblor), 0, 0);
+            timer += Time.deltaTime;
+            yield return null;
+        }
+        transform.position = posicionInicial; 
+
+        // 2. CAER
+        rb.bodyType = RigidbodyType2D.Dynamic;
+        rb.gravityScale = gravedadCaida;
+        rb.linearVelocity = Vector2.zero; 
+
+        yield return new WaitForFixedUpdate(); 
+        
+        while (rb.linearVelocity.y < -0.1f) 
+        {
+            yield return null;
+        }
+
+        // 3. ESPERAR EN EL SUELO
+        rb.bodyType = RigidbodyType2D.Kinematic;
+        rb.linearVelocity = Vector2.zero;
+        
+        yield return new WaitForSeconds(tiempoEsperaPiso);
+
+        // 4. REGRESAR ARRIBA
+        while (Vector3.Distance(transform.position, posicionInicial) > 0.1f)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, posicionInicial, velocidadSubida * Time.deltaTime);
+            yield return null;
+        }
+
+        transform.position = posicionInicial;
+        atacando = false;
+    }
+
+    // --- LOGICA DE MUERTE ---
     private void OnCollisionEnter2D(Collision2D other) 
     {
-        // Verificamos si es el jugador y si no está muriendo ya
         if (other.gameObject.CompareTag("Player") && !estaRespawning)
         {
             StartCoroutine(SecuenciaMuerte(other.gameObject));
@@ -22,64 +107,47 @@ public class SpikeHead : MonoBehaviour
     {
         estaRespawning = true;
 
-        // 1. Frenar al jugador y quitarle el control
-        Rigidbody2D rb = player.GetComponent<Rigidbody2D>();
-        Animator anim = player.GetComponent<Animator>();
-        
-        // Buscamos tu script de movimiento para desactivarlo temporalmente
-        // (Asegúrate que se llame 'PlayerController' o el nombre que le hayas puesto)
+        Rigidbody2D rbPlayer = player.GetComponent<Rigidbody2D>();
+        Animator animPlayer = player.GetComponent<Animator>();
         MonoBehaviour scriptMovimiento = player.GetComponent<PlayerController>(); 
 
-        if (rb != null)
+        if (rbPlayer != null)
         {
-            rb.linearVelocity = Vector2.zero; // Frenado total
-            rb.bodyType = RigidbodyType2D.Kinematic; // Lo congelamos en el aire (opcional)
+            rbPlayer.linearVelocity = Vector2.zero; 
+            rbPlayer.bodyType = RigidbodyType2D.Kinematic; 
         }
 
-        if (scriptMovimiento != null)
-        {
-            scriptMovimiento.enabled = false; // El jugador ya no puede moverse con las teclas
-        }
+        if (scriptMovimiento != null) scriptMovimiento.enabled = false; 
 
-        // 2. Activar la animación de HIT
-        if (anim != null)
-        {
-            anim.SetTrigger("hit"); // Asegúrate de haber creado este Trigger en el Animator
-        }
+        if (animPlayer != null) animPlayer.SetTrigger("hit"); 
 
-        // 3. Esperar a que termine la animación
         yield return new WaitForSeconds(tiempoAnimacion);
 
-        // 4. Buscar el punto de Respawn
         GameObject respawnPoint = GameObject.FindWithTag("Respawn");
         if (respawnPoint != null)
         {
-            // Movemos al jugador
             player.transform.position = respawnPoint.transform.position;
         }
-        else
+
+        if (rbPlayer != null)
         {
-            Debug.LogWarning("¡Falta el objeto con tag Respawn!");
+            rbPlayer.bodyType = RigidbodyType2D.Dynamic; 
+            rbPlayer.linearVelocity = Vector2.zero;
         }
 
-        // 5. Devolver el control al jugador
-        if (rb != null)
-        {
-            rb.bodyType = RigidbodyType2D.Dynamic; // Vuelve a tener física
-            rb.linearVelocity = Vector2.zero;
-        }
-
-        if (scriptMovimiento != null)
-        {
-            scriptMovimiento.enabled = true; // Vuelve a poder moverse
-        }
+        if (scriptMovimiento != null) scriptMovimiento.enabled = true; 
         
-        // 6. Volver a animación normal (Idle/Run)
-        // Normalmente el Animator lo hace solo si la transición Hit -> Exit tiene "Has Exit Time"
-        // O puedes forzarlo:
-        // anim.Play("Idle"); 
-
         estaRespawning = false;
     }
-       
+
+    // --- GIZMOS ACTUALIZADOS PARA VER LA CAJA ---
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        // Dibujamos una caja alámbrica al final del rango para visualizar el área
+        Vector3 centroAbajo = transform.position + Vector3.down * rangoDeteccion;
+        Gizmos.DrawWireCube(centroAbajo, new Vector3(anchoDeteccion, rangoDeteccion * 2, 0)); 
+        // Nota: Dibujar la caja exacta del BoxCast es complejo en Gizmos, 
+        // pero esto te da una idea del ancho y largo.
+    }
 }
