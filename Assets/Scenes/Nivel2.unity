@@ -2189,7 +2189,7 @@ MonoBehaviour:
   m_LightType: 4
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.5377358, g: 0.24096651, b: 0.24096651, a: 1}
   m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
@@ -2408,7 +2408,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2038322303643459483, guid: 563b659be54bfdc4f882870b5ea78234, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.4643886
+      value: 0.392
       objectReference: {fileID: 0}
     - target: {fileID: 2038322303643459483, guid: 563b659be54bfdc4f882870b5ea78234, type: 3}
       propertyPath: m_LocalPosition.y
@@ -41601,7 +41601,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1516652497}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
   m_Name: 
@@ -41610,7 +41610,7 @@ MonoBehaviour:
   m_LightType: 3
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9716981, g: 0.9716981, b: 0.9716981, a: 1}
   m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
@@ -42617,7 +42617,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2038322303643459483, guid: 563b659be54bfdc4f882870b5ea78234, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.93669426
+      value: 1.009
       objectReference: {fileID: 0}
     - target: {fileID: 2038322303643459483, guid: 563b659be54bfdc4f882870b5ea78234, type: 3}
       propertyPath: m_LocalPosition.y
