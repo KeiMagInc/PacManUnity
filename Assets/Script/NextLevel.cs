@@ -20,7 +20,15 @@ public class nextLevel : MonoBehaviour
             StartCoroutine(LoadLevelWithTransition());
         }
     }
-
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        // Si toca el jugador Y no quedan frutas
+        if (collision.CompareTag("Player") && fruits.transform.childCount == 0)
+        {
+            // En vez de cargar de golpe, iniciamos la rutina
+            StartCoroutine(LoadLevelWithTransition());
+        }
+    }
     // Si usas este método para botones, también lo actualizamos
     public void nextScene()
     {
