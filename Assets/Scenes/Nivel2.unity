@@ -41499,6 +41499,23 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
+--- !u!114 &1516652510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1516652497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f22cbcb3da40bd74dbec9acbd3e42b29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controladores:
+  - {fileID: 9100000, guid: 4bf5b18b0ff8dbc4c8b97192569cda1d, type: 2}
+  - {fileID: 9100000, guid: 1fac3c1892c048345b79f310b8b87c01, type: 2}
+  - {fileID: 9100000, guid: b32536d93dfa7704b9b4d99e578681a2, type: 2}
+  - {fileID: 9100000, guid: 79c2398c8f659734dbe60f4a31002121, type: 2}
 --- !u!1001 &1518209803
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -44248,6 +44265,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6920150004535532243, guid: f1f723f828ee1c44baaa573bad3babee, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1516652509}
+    - targetCorrespondingSourceObject: {fileID: 6920150004535532243, guid: f1f723f828ee1c44baaa573bad3babee, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1516652510}
   m_SourcePrefab: {fileID: 100100000, guid: f1f723f828ee1c44baaa573bad3babee, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

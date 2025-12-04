@@ -381,6 +381,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6920150004535532243, guid: f1f723f828ee1c44baaa573bad3babee, type: 3}
       insertIndex: -1
       addedObject: {fileID: 131851305}
+    - targetCorrespondingSourceObject: {fileID: 6920150004535532243, guid: f1f723f828ee1c44baaa573bad3babee, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 131851306}
   m_SourcePrefab: {fileID: 100100000, guid: f1f723f828ee1c44baaa573bad3babee, type: 3}
 --- !u!1 &131851304 stripped
 GameObject:
@@ -401,6 +404,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ghostPrefab: {fileID: 2862275229177632211, guid: 00b25a6a76fd867478ee87a38523dbef, type: 3}
   tiempoEntreFantasmas: 0.2
+--- !u!114 &131851306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 131851304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f22cbcb3da40bd74dbec9acbd3e42b29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controladores:
+  - {fileID: 9100000, guid: 4bf5b18b0ff8dbc4c8b97192569cda1d, type: 2}
+  - {fileID: 9100000, guid: 1fac3c1892c048345b79f310b8b87c01, type: 2}
+  - {fileID: 9100000, guid: b32536d93dfa7704b9b4d99e578681a2, type: 2}
+  - {fileID: 9100000, guid: 79c2398c8f659734dbe60f4a31002121, type: 2}
 --- !u!1001 &196761527
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4507,7 +4527,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f68091fe1a6ed444b51c702b52675fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneIndex: 2
+  sceneIndex: 3
   fruits: {fileID: 1696569328}
   transitionAnim: {fileID: 9732037}
   transitionTime: 2
