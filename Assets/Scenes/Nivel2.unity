@@ -44150,6 +44150,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 13138667137280134, guid: f1f723f828ee1c44baaa573bad3babee, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 4bf5b18b0ff8dbc4c8b97192569cda1d, type: 2}
     - target: {fileID: 769546208476070707, guid: f1f723f828ee1c44baaa573bad3babee, type: 3}
       propertyPath: isGrounded
       value: 0
