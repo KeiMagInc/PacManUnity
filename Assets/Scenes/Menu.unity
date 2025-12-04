@@ -532,7 +532,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: FrutiLupi
+  m_text: 'Frutopia '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 60b7f7004abf9e940b845b479ca58f13, type: 2}
   m_sharedMaterial: {fileID: 1200837689858592881, guid: 60b7f7004abf9e940b845b479ca58f13, type: 2}

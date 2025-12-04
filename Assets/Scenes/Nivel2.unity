@@ -3005,7 +3005,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f68091fe1a6ed444b51c702b52675fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneIndex: 0
+  sceneIndex: 4
   fruits: {fileID: 1696569328}
   transitionAnim: {fileID: 1367775304}
   transitionTime: 2
