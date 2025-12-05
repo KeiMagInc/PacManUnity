@@ -5,4 +5,5 @@ public class PlayerInfo : ScriptableObject
 {
     public int score = 0;
     public string playerName = "Juagdor";
+    public float tiempoTotal = 0f; 
 }

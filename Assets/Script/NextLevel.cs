@@ -16,6 +16,13 @@ public class nextLevel : MonoBehaviour
         // Si toca el jugador Y no quedan frutas
         if (collision.CompareTag("Player") && fruits.transform.childCount == 0)
         {
+            // Buscamos el script del tiempo en la escena
+            LevelTimer timer = Object.FindFirstObjectByType<LevelTimer>(); 
+            
+            if (timer != null)
+            {
+                timer.DetenerReloj(); // ¡Congelado!
+            }
             // En vez de cargar de golpe, iniciamos la rutina
             StartCoroutine(LoadLevelWithTransition());
         }
