@@ -47,9 +47,15 @@ public class LevelTimer : MonoBehaviour
         textoTiempo.text = string.Format("{0:00}:{1:00}", minutos, segundos);
     }
 
-    // NUEVO: Función pública para detener el reloj desde otro script
+    // Función pública para detener el reloj desde otro script
     public void DetenerReloj()
     {
         timerCorriendo = false;
+
+        // --- NUEVO: Guardamos el tiempo final para la tabla de puntuación ---
+        // "LastRunTime" es la clave que buscará la pantalla final
+        PlayerPrefs.SetFloat("LastRunTime", tiempoActual);
+        PlayerPrefs.Save();
+        // ------------------------------------------------------------------
     }
 }
