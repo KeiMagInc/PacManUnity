@@ -3995,7 +3995,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: -4039912110816036059, guid: 3c112a44cc7dc7a468f4d132c2e7611c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -43934,6 +43934,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6308072075631165365, guid: 6cca18db804ff3a448cd70093407705f, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -43986,6 +43990,10 @@ PrefabInstance:
     - target: {fileID: 2648172623385801022, guid: 7501ce099b5d9bc48af23892b00bab57, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6603139747929442433, guid: 7501ce099b5d9bc48af23892b00bab57, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8735117779158628078, guid: 7501ce099b5d9bc48af23892b00bab57, type: 3}
       propertyPath: m_Name
@@ -44061,6 +44069,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1696569329}
     m_Modifications:
+    - target: {fileID: 3128491468980405521, guid: 222a073ebe85f984392b9eea8ed421ec, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8305007739948037621, guid: 222a073ebe85f984392b9eea8ed421ec, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.837
@@ -44283,6 +44295,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cherries_0
       objectReference: {fileID: 0}
+    - target: {fileID: 4444464985638890491, guid: 65d747707d3735f439de39cb9a717be8, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6078404793589312490, guid: 65d747707d3735f439de39cb9a717be8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.657
@@ -44339,6 +44355,10 @@ PrefabInstance:
     - target: {fileID: 34959677429175811, guid: af560d3a8f756aa4fbc3783942624c04, type: 3}
       propertyPath: m_Name
       value: Melon_0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1221476104608891608, guid: af560d3a8f756aa4fbc3783942624c04, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4454327251205579410, guid: af560d3a8f756aa4fbc3783942624c04, type: 3}
       propertyPath: m_LocalPosition.x
@@ -44437,6 +44457,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5999813845797128065, guid: 429e2d706b81ded47b1954bf99ab9bf8, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -44494,6 +44518,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7607698550251265329, guid: 306cc35f7a5edf146bc58d4e2c3b7fb4, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -44546,6 +44574,10 @@ PrefabInstance:
     - target: {fileID: 2861359876557033533, guid: 25633405304fb35458e6fbad45c5efc6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7169081220110834310, guid: 25633405304fb35458e6fbad45c5efc6, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7888268442913747505, guid: 25633405304fb35458e6fbad45c5efc6, type: 3}
       propertyPath: m_Name
