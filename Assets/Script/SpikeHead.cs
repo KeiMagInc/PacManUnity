@@ -3,6 +3,10 @@ using System.Collections;
 
 public class SpikeHead : MonoBehaviour
 {
+
+    public AudioClip sonidoMuerte;
+    private AudioSource audioSource;
+
     [Header("Configuración de Ataque (Mario Style)")]
     public float rangoDeteccion = 10f;
     public float anchoDeteccion = 1.5f; // NUEVO: Qué tan "gordo" es el rayo
@@ -27,6 +31,8 @@ public class SpikeHead : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         posicionInicial = transform.position;
         rb.bodyType = RigidbodyType2D.Kinematic;
+
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -99,6 +105,10 @@ public class SpikeHead : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player") && !estaRespawning)
         {
+            if (audioSource != null && sonidoMuerte != null)
+            {
+                audioSource.PlayOneShot(sonidoMuerte);
+            }
             StartCoroutine(SecuenciaMuerte(other.gameObject));
         }
     }

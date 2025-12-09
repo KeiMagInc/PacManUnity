@@ -3,17 +3,31 @@ using UnityEngine;
 
 public class DamageObject : MonoBehaviour
 {
+
+    public AudioClip sonidoMuerte; 
+    private AudioSource audioSource;
+
     // Tiempo que dura tu animación de golpe (ajústalo según tu clip)
     public float tiempoAnimacion = 0.5f; 
     
     // Variable para evitar que el jugador muera dos veces seguidas
     private bool estaRespawning = false; 
+    private void Start()
+    {
+        // --- NUEVO: Buscamos el componente de audio en este objeto ---
+        audioSource = GetComponent<AudioSource>();
+    }
 
     private void OnCollisionEnter2D(Collision2D other) 
     {
         // Verificamos si es el jugador y si no está muriendo ya
         if (other.gameObject.CompareTag("Player") && !estaRespawning)
         {
+
+            if (audioSource != null && sonidoMuerte != null)
+            {
+                audioSource.PlayOneShot(sonidoMuerte);
+            }
             StartCoroutine(SecuenciaMuerte(other.gameObject));
         }
     }

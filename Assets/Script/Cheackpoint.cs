@@ -2,11 +2,15 @@ using UnityEngine;
 
 public class Checkpoint : MonoBehaviour
 {
+
+    public AudioClip sonidoCheckpoint;
+    private AudioSource audioSource;
     private Animator anim;
     private bool activado = false; // Para que no suene ni se active 2 veces
 
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         anim = GetComponent<Animator>();
     }
 
@@ -22,6 +26,10 @@ public class Checkpoint : MonoBehaviour
     void activarCheckpoint()
     {
         activado = true;
+        if (audioSource != null && sonidoCheckpoint != null)
+            {
+                audioSource.PlayOneShot(sonidoCheckpoint);
+            }
 
         // 1. Activar animación (Palo -> Sale Bandera)
         if (anim != null)
